@@ -16,7 +16,7 @@ export default function Footer() {
           color: 'var(--color-text-secondary)',
         }}
       >
-        <span>&copy; {new Date().getFullYear()} Rob Cawsey</span>
+        <span>&copy; {new Date().getFullYear()} RCSoftware</span>
         <div style={{ display: 'flex', gap: 16 }}>
           <a href="mailto:robcawsey@outlook.com" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <Mail size={15} />

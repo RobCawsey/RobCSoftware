@@ -15,7 +15,7 @@ export default function Header() {
       <div className="container site-header__inner">
         <NavLink to="/" className="site-header__brand">
           <CodeXml size={20} />
-          <span>Rob Cawsey</span>
+          <span>RCSoftware</span>
         </NavLink>
         <nav className="site-header__nav">
           {links.map((link) => (
