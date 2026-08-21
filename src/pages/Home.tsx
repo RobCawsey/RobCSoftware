@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Smartphone } from 'lucide-react'
 import { projects } from '../data/projects'
 import { posts } from '../data/posts'
 import ProjectCard from '../components/ProjectCard'
@@ -43,6 +44,16 @@ export default function Home() {
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
+          <div
+            className="card"
+            style={{ borderStyle: 'dashed', color: 'var(--color-text-muted)', width: '100%', maxWidth: 260 }}
+          >
+            <Smartphone size={22} />
+            <h3 style={{ margin: '10px 0 4px', color: 'var(--color-text-muted)' }}>Mobile games</h3>
+            <p style={{ fontSize: 13.5 }}>Coming soon.</p>
+          </div>
         </div>
       </section>
 
