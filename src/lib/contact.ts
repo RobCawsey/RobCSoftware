@@ -23,7 +23,7 @@ export async function submitContactForm(payload: ContactPayload): Promise<void> 
       from_name: payload.name,
       from_email: payload.email,
       subject: payload.subject,
-      message: payload.message,
+      message: `From: ${payload.email}\n\n${payload.message}`,
     },
     { publicKey: PUBLIC_KEY }
   )
