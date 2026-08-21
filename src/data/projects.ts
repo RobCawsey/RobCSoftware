@@ -60,7 +60,7 @@ export const projects: Project[] = [
     ],
     screenshotCaption: 'Guided flow — watching a population of gaits evolve',
     screenshotSrc: evolabScreenshot,
-    sourceUrl: 'https://github.com/rob-cawsey/evolab',
+    sourceUrl: 'https://github.com/RobCawsey/Evolab',
   },
   {
     slug: 'neurallab',
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     ],
     screenshotCaption: 'The self-organizing map folded through input space on the colour cube',
     screenshotSrc: neurallabScreenshot,
-    sourceUrl: 'https://github.com/rob-cawsey/neurallab',
+    sourceUrl: 'https://github.com/RobCawsey/NeuralLab',
   },
   {
     slug: 'emulator',
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     ],
     screenshotCaption: 'GenesisSharp — the live debugger alongside a game running in real time',
     screenshotSrc: emulatorScreenshot,
-    sourceUrl: 'https://github.com/rob-cawsey/emulators',
+    sourceUrl: 'https://github.com/RobCawsey/Emulators',
     downloadUrl: '#',
   },
 ]

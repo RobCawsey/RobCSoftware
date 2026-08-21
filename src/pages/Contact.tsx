@@ -97,8 +97,8 @@ export default function Contact() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <Github size={16} />
-            <a href="https://github.com/rob-cawsey" target="_blank" rel="noreferrer">
-              github.com/rob-cawsey
+            <a href="https://github.com/RobCawsey" target="_blank" rel="noreferrer">
+              github.com/RobCawsey
             </a>
           </div>
         </div>

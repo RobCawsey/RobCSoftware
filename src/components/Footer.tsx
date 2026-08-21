@@ -23,7 +23,7 @@ export default function Footer() {
             robcawsey@outlook.com
           </a>
           <a
-            href="https://github.com/rob-cawsey"
+            href="https://github.com/RobCawsey"
             target="_blank"
             rel="noreferrer"
             style={{ display: 'flex', alignItems: 'center', gap: 6 }}
