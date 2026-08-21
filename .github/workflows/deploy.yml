@@ -1,0 +1,80 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [evolab-updated, neurallab-updated]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  # GitHub Pages project sites serve from /<repo-name>/, not from root. If this site ever
+  # moves to a custom domain, change this (and nothing else) to an empty string.
+  SITE_BASE_PATH: /RobCSoftware/
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Checkout EvoLab
+        uses: actions/checkout@v4
+        with:
+          repository: RobCawsey/Evolab
+          token: ${{ secrets.REPO_READ_TOKEN }}
+          path: _evolab
+
+      - name: Checkout NeuralLab
+        uses: actions/checkout@v4
+        with:
+          repository: RobCawsey/NeuralLab
+          token: ${{ secrets.REPO_READ_TOKEN }}
+          path: _neurallab
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build and copy embedded apps
+        run: npm run build:apps
+        env:
+          EVOLAB_DIR: _evolab
+          NEURALLAB_DIR: _neurallab
+          EMBED_BASE_PATH_EVOLAB: ${{ env.SITE_BASE_PATH }}apps/evolab/
+          EMBED_BASE_PATH_NEURALLAB: ${{ env.SITE_BASE_PATH }}apps/neurallab/
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,133 @@
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f4f0;
+  --color-border: #e3e1d8;
+  --color-text: #1c1c1a;
+  --color-text-secondary: #5f5e5a;
+  --color-text-muted: #888780;
+
+  --accent-evolab: #0f6e56;
+  --accent-evolab-bg: #e1f5ee;
+  --accent-neurallab: #534ab7;
+  --accent-neurallab-bg: #eeedfe;
+  --accent-emulator: #993c1d;
+  --accent-emulator-bg: #faece7;
+  --accent-blue: #185fa5;
+  --accent-blue-bg: #e6f1fb;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-width: 1080px;
+
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+}
+
+body {
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.btn:hover {
+  background: var(--color-surface);
+}
+
+.btn-primary {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #35342f;
+}
+
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+@media (max-width: 720px) {
+  .container {
+    padding: 0 16px;
+  }
+}
