@@ -1,6 +1,7 @@
 import { PersonStanding, Brain, Gamepad2, type LucideIcon } from 'lucide-react'
 import evolabScreenshot from '../assets/screenshots/evolab.png'
 import neurallabScreenshot from '../assets/screenshots/neurallab.png'
+import emulatorScreenshot from '../assets/screenshots/emulator.png'
 
 export type ProjectHighlight = {
   title: string
@@ -126,7 +127,8 @@ export const projects: Project[] = [
         description: 'Full hardware state round-trip via .gss files, with ROM-mismatch detection.',
       },
     ],
-    screenshotCaption: 'GenesisSharp debugger — live 68000/Z80 disassembly and registers',
+    screenshotCaption: 'GenesisSharp — the live debugger alongside a game running in real time',
+    screenshotSrc: emulatorScreenshot,
     sourceUrl: 'https://github.com/rob-cawsey/emulators',
     downloadUrl: '#',
   },
