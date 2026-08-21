@@ -3,6 +3,7 @@ import { Smartphone } from 'lucide-react'
 import { projects } from '../data/projects'
 import { posts } from '../data/posts'
 import ProjectCard from '../components/ProjectCard'
+import './Home.css'
 
 export default function Home() {
   const latestPosts = posts.slice(0, 2)
@@ -45,15 +46,21 @@ export default function Home() {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
-          <div
-            className="card"
-            style={{ borderStyle: 'dashed', color: 'var(--color-text-muted)', width: '100%', maxWidth: 260 }}
-          >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: 16,
+            marginTop: 16,
+          }}
+        >
+          <div className="mobile-games-spacer" />
+          <div className="card" style={{ borderStyle: 'dashed', color: 'var(--color-text-muted)' }}>
             <Smartphone size={22} />
             <h3 style={{ margin: '10px 0 4px', color: 'var(--color-text-muted)' }}>Mobile games</h3>
             <p style={{ fontSize: 13.5 }}>Coming soon.</p>
           </div>
+          <div className="mobile-games-spacer" />
         </div>
       </section>
 
