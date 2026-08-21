@@ -1,5 +1,6 @@
 import { PersonStanding, Brain, Gamepad2, type LucideIcon } from 'lucide-react'
 import evolabScreenshot from '../assets/screenshots/evolab.png'
+import neurallabScreenshot from '../assets/screenshots/neurallab.png'
 
 export type ProjectHighlight = {
   title: string
@@ -90,7 +91,8 @@ export const projects: Project[] = [
         description: 'An orbitable MLP loss landscape and a 3D-folded self-organizing map lattice.',
       },
     ],
-    screenshotCaption: 'Full-screen training stepper with live gradient flow',
+    screenshotCaption: 'The self-organizing map folded through input space on the colour cube',
+    screenshotSrc: neurallabScreenshot,
     sourceUrl: 'https://github.com/rob-cawsey/neurallab',
   },
   {
