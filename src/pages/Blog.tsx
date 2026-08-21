@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FileText } from 'lucide-react'
 import { posts } from '../data/posts'
 import { getProject } from '../data/projects'
 
@@ -27,10 +28,15 @@ export default function Blog() {
                   width: 88,
                   height: 60,
                   borderRadius: 'var(--radius)',
-                  background: 'var(--color-surface)',
+                  background: project?.accentBgVar ?? 'var(--color-surface)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   flexShrink: 0,
                 }}
-              />
+              >
+                <FileText size={24} color={project?.accentVar ?? 'var(--color-text-muted)'} />
+              </div>
               <div>
                 <div style={{ fontSize: 12, color: 'var(--color-text-muted)', marginBottom: 4 }}>
                   {post.date} &middot; {post.readTime} &middot;{' '}
