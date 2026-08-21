@@ -23,7 +23,7 @@ export async function submitContactForm(payload: ContactPayload): Promise<void> 
       from_name: payload.name,
       from_email: payload.email,
       subject: payload.subject,
-      message: `From: ${payload.email.replaceAll('@', '*')}\n\n${payload.message}`,
+      message: payload.message,
     },
     { publicKey: PUBLIC_KEY }
   )
