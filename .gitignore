@@ -4,6 +4,7 @@ dist-ssr
 *.local
 .DS_Store
 .vs/
+Media/
 
 public/apps/*/
 !public/apps/*/.gitkeep

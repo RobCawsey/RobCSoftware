@@ -70,21 +70,34 @@ export default function ProjectDetail() {
           : 'Windows desktop app — download to run locally.'}
       </div>
 
-      <div
-        className="card"
-        style={{
-          height: 220,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'var(--color-text-muted)',
-          fontSize: 13,
-          marginBottom: 32,
-          background: 'var(--color-surface)',
-        }}
-      >
-        Screenshot — {project.screenshotCaption}
-      </div>
+      {project.screenshotSrc ? (
+        <figure style={{ margin: '0 0 32px' }}>
+          <img
+            src={project.screenshotSrc}
+            alt={project.screenshotCaption}
+            style={{ width: '100%', display: 'block', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)' }}
+          />
+          <figcaption style={{ fontSize: 12.5, color: 'var(--color-text-muted)', marginTop: 8 }}>
+            {project.screenshotCaption}
+          </figcaption>
+        </figure>
+      ) : (
+        <div
+          className="card"
+          style={{
+            height: 220,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'var(--color-text-muted)',
+            fontSize: 13,
+            marginBottom: 32,
+            background: 'var(--color-surface)',
+          }}
+        >
+          Screenshot — {project.screenshotCaption}
+        </div>
+      )}
 
       <div style={{ fontSize: 13, color: 'var(--color-text-muted)', marginBottom: 16 }}>
         HIGHLIGHTS

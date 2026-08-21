@@ -1,4 +1,5 @@
 import { PersonStanding, Brain, Gamepad2, type LucideIcon } from 'lucide-react'
+import evolabScreenshot from '../assets/screenshots/evolab.png'
 
 export type ProjectHighlight = {
   title: string
@@ -19,6 +20,7 @@ export type Project = {
   techStack: string[]
   highlights: ProjectHighlight[]
   screenshotCaption: string
+  screenshotSrc?: string
   sourceUrl: string
   downloadUrl?: string
 }
@@ -54,7 +56,8 @@ export const projects: Project[] = [
         description: 'A gait-analysis strip alongside a full 3D replay of the champion robot.',
       },
     ],
-    screenshotCaption: 'MAP-Elites behaviour archive — 24x24 gait grid',
+    screenshotCaption: 'Guided flow — watching a population of gaits evolve',
+    screenshotSrc: evolabScreenshot,
     sourceUrl: 'https://github.com/rob-cawsey/evolab',
   },
   {
