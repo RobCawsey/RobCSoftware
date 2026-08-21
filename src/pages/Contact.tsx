@@ -10,6 +10,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [status, setStatus] = useState<Status>('idle')
@@ -19,6 +20,7 @@ export default function Contact() {
     if (!name.trim()) next.name = 'Enter your name'
     if (!email.trim()) next.email = 'Enter your email'
     else if (!EMAIL_RE.test(email.trim())) next.email = 'Enter a valid email address'
+    if (!subject.trim()) next.subject = 'Enter a subject'
     if (!message.trim()) next.message = 'Enter a message'
     setErrors(next)
     return Object.keys(next).length === 0
@@ -30,10 +32,16 @@ export default function Contact() {
 
     setStatus('submitting')
     try {
-      await submitContactForm({ name: name.trim(), email: email.trim(), message: message.trim() })
+      await submitContactForm({
+        name: name.trim(),
+        email: email.trim(),
+        subject: subject.trim(),
+        message: message.trim(),
+      })
       setStatus('success')
       setName('')
       setEmail('')
+      setSubject('')
       setMessage('')
     } catch {
       setStatus('error')
@@ -64,6 +72,15 @@ export default function Contact() {
             style={inputStyle}
           />
           {errors.email && <div style={errorStyle}>{errors.email}</div>}
+
+          <label style={fieldLabelStyle}>Subject</label>
+          <input
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            placeholder="What's this about?"
+            style={inputStyle}
+          />
+          {errors.subject && <div style={errorStyle}>{errors.subject}</div>}
 
           <label style={fieldLabelStyle}>Message</label>
           <textarea

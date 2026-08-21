@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser'
 export type ContactPayload = {
   name: string
   email: string
+  subject: string
   message: string
 }
 
@@ -21,6 +22,7 @@ export async function submitContactForm(payload: ContactPayload): Promise<void> 
     {
       from_name: payload.name,
       from_email: payload.email,
+      subject: payload.subject,
       message: payload.message,
     },
     { publicKey: PUBLIC_KEY }
