@@ -65,11 +65,11 @@ export default function ProjectDetail() {
             View source
           </a>
         </div>
-        <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>
-          {project.embeddable
-            ? 'Runs directly in your browser. Best experienced on desktop.'
-            : 'Windows desktop app — download to run locally.'}
-        </div>
+        {!project.embeddable && (
+          <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>
+            Windows desktop app — download to run locally.
+          </div>
+        )}
       </div>
 
       {project.screenshotSrc ? (
